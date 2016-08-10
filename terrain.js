@@ -1042,7 +1042,8 @@ function drawMap(svg, render) {
     drawLabels(svg, render);
 }
 
-function doMap(svg, params) {
+function doMap( svg, myParams = {} ) {
+    const params = Object.assign( {}, defaultParams, myParams );
     var render = {
         params: params
     };
