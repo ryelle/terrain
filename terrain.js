@@ -1,4 +1,5 @@
 "use strict";
+import { makeRandomLanguage, makeName } from '../naming-language/language';
 
 function runif(lo, hi) {
     return lo + Math.random() * (hi - lo);
