@@ -859,7 +859,7 @@ function drawLabels(svg, render) {
     var cities = render.cities;
     var nterrs = render.params.nterrs;
     var avoids = [render.rivers, render.coasts, render.borders];
-    var lang = makeRandomLanguage();
+    var lang = params.lang || makeRandomLanguage();
     var citylabels = [];
     function penalty(label) {
         var pen = 0;
@@ -1066,6 +1066,7 @@ var defaultParams = {
     npts: 16384,
     ncities: 15,
     nterrs: 5,
+    lang: false,
     fontsizes: {
         region: 40,
         city: 25,
