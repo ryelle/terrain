@@ -1,5 +1,13 @@
 "use strict";
-import { makeRandomLanguage, makeName } from '../naming-language/language';
+
+import Language from '../naming-language/language';
+import PriorityQueue from 'priorityqueue';
+
+function makeRandomLanguage() {
+	const lang = new Language();
+	lang.makeRandomLanguage();
+	return lang;
+}
 
 function runif(lo, hi) {
     return lo + Math.random() * (hi - lo);
@@ -898,7 +906,7 @@ function drawLabels(svg, render) {
     for (var i = 0; i < cities.length; i++) {
         var x = h.mesh.vxs[cities[i]][0];
         var y = h.mesh.vxs[cities[i]][1];
-        var text = makeName(lang, 'city');
+        var text = lang.makeName( 'city' );
         var size = i < nterrs ? params.fontsizes.city : params.fontsizes.town;
         var sx = 0.65 * size/1000 * text.length;
         var sy = size/1000;
@@ -962,7 +970,7 @@ function drawLabels(svg, render) {
     var reglabels = [];
     for (var i = 0; i < nterrs; i++) {
         var city = cities[i];
-        var text = makeName(lang, 'region');
+        var text = lang.makeName( 'region' );
         var sy = params.fontsizes.region / 1000;
         var sx = 0.6 * text.length * sy;
         var lc = terrCenter(h, terr, city, true);
