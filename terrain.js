@@ -567,7 +567,7 @@ function getTerritories(render) {
         terr[cities[i]] = cities[i];
         var nbs = neighbours(h.mesh, cities[i]);
         for (var j = 0; j < nbs.length; j++) {
-            queue.queue({
+            queue.enqueue({
                 score: weight(cities[i], nbs[j]),
                 city: cities[i],
                 vx: nbs[j]
@@ -583,7 +583,7 @@ function getTerritories(render) {
             var v = nbs[i];
             if (terr[v] != undefined) continue;
             var newdist = weight(u.vx, v);
-            queue.queue({
+            queue.enqueue({
                 score: u.score + newdist,
                 city: u.city,
                 vx: v
