@@ -1072,3 +1072,5 @@ var defaultParams = {
         town: 20
     }
 };
+
+export default doMap;
