@@ -1,7 +1,7 @@
 "use strict";
 
 import Language from '../naming-language/language';
-import PriorityQueue from 'priorityqueue';
+import PriorityQueue from 'js-priority-queue';
 
 function makeRandomLanguage() {
 	const lang = new Language();
@@ -576,7 +576,7 @@ function getTerritories(render) {
         terr[cities[i]] = cities[i];
         var nbs = neighbours(h.mesh, cities[i]);
         for (var j = 0; j < nbs.length; j++) {
-            queue.enqueue({
+            queue.queue({
                 score: weight(cities[i], nbs[j]),
                 city: cities[i],
                 vx: nbs[j]
@@ -592,7 +592,7 @@ function getTerritories(render) {
             var v = nbs[i];
             if (terr[v] != undefined) continue;
             var newdist = weight(u.vx, v);
-            queue.enqueue({
+            queue.queue({
                 score: u.score + newdist,
                 city: u.city,
                 vx: v
@@ -1038,6 +1038,7 @@ function drawLabels(svg, render) {
         .raise();
 
 }
+
 function drawMap(svg, render) {
     render.rivers = getRivers(render.h, 0.01);
     render.coasts = contour(render.h, 0);
