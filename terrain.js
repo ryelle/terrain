@@ -1049,6 +1049,8 @@ function drawMap(svg, render) {
     visualizeSlopes(svg, render);
     visualizeCities(svg, render);
     drawLabels(svg, render);
+    var event = new Event('end.terrain');
+    document.dispatchEvent(event);
 }
 
 function doMap( svg, myParams = {} ) {
